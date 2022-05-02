@@ -1,29 +1,12 @@
-module "vpc" {
-  source  = "cloudposse/vpc/aws"
-  version = "0.28.1"
+resource "aws_mwaa_environment" "example" {
+  dag_s3_path        = "dags/"
+  execution_role_arn = aws_iam_role.example.arn
+  name               = "example"
 
-  cidr_block = "172.16.0.0/16"
+  network_configuration {
+    security_group_ids = [aws_security_group.example.id]
+    subnet_ids         = aws_subnet.private[*].id
+  }
 
-  context = module.this.context
-}
-
-module "subnets" {
-  source  = "cloudposse/dynamic-subnets/aws"
-  version = "0.39.8"
-
-  availability_zones   = var.availability_zones
-  vpc_id               = module.vpc.vpc_id
-  igw_id               = module.vpc.igw_id
-  cidr_block           = module.vpc.vpc_cidr_block
-  nat_gateway_enabled  = true
-  nat_instance_enabled = false
-
-  context = module.this.context
-}
-
-module "mwaa" {
-  vpc_id     = module.vpc.vpc_id
-  subnet_ids = module.subnets.private_subnet_ids
-
-  context = module.this.context
+  source_bucket_arn = aws_s3_bucket.example.arn
 }
