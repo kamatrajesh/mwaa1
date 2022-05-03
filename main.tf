@@ -1,5 +1,4 @@
 module "airflow" {
-  source = "idealo/mwaa/aws"
   version = "2.2.2"
   account_id = "863309687429"
   environmentname = "MyEnvironment_terra"
