@@ -1,7 +1,7 @@
 module "airflow" {
   source = "idealo/mwaa/aws"
   version = "2.2.2"
-  account_id  "863309687429"
+  account_id = "863309687429"
   environmentname = "MyEnvironment_terra"
   internet_gateway_id = "igw-08ecca2ea7c88702a"
   private_subnet_cidrs = ["10.192.20.0/24","10.192.21.0/24"] # depending on your vpc ip range
