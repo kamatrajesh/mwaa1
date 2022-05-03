@@ -3,7 +3,7 @@
 resource "aws_mwaa_environment" "example" {
    dag_s3_path        = "dags/"
    execution_role_arn = var.arn
-   name               = var.name
+   name               = var.name1
 
   network_configuration {
     security_group_ids = ["sg-07f4377f13eefbdc6"]
