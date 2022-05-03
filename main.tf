@@ -9,5 +9,5 @@ resource "aws_mwaa_environment" "example" {
   }
 
   source_bucket_arn = "arn:aws:s3:::airflow197805"
-  aws_region =  "us-east-1" 
+  
 }
