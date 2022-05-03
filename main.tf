@@ -1,3 +1,18 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+}
+
+# Configure the AWS Provider
+provider "aws" {
+  region = "us-east-1"
+}
+
+
 resource "aws_mwaa_environment" "example" {
    dag_s3_path        = "dags/"
   execution_role_arn = "arn:aws:iam::863309687429:role/service-role/AmazonMWAA-MyAirflowEnvironment"
