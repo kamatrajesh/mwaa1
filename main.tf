@@ -1,4 +1,5 @@
 resource "aws_mwaa_environment" "example" {
+  data "aws_region" "current" {}
   dag_s3_path        = "dags/"
   execution_role_arn = "arn:aws:iam::863309687429:role/service-role/AmazonMWAA-MyAirflowEnvironment"
   name               = "example"
