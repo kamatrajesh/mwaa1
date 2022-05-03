@@ -1,3 +1,3 @@
 {
-  nam1="exam1"
+  name1="exam12"
 }
