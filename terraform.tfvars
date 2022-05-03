@@ -1,3 +1,3 @@
 {
-  "name1":"exam1"
+  "name":"exam1"
 }
