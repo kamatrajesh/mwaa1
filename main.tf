@@ -1,11 +1,12 @@
 resource "aws_mwaa_environment" "example" {
-  version = "2.2.2"
-  account_id = "863309687429"
-  environmentname = "MyEnvironment_terra"
-  internet_gateway_id = "igw-08ecca2ea7c88702a"
-  private_subnet_cidrs = ["10.192.20.0/24","10.192.21.0/24"] # depending on your vpc ip range
-  public_subnet_cidrs = ["10.192.10.0/24","10.192.11.0/24"] # depending on your vpc ip range
-  region = "us-east-1"
+  dag_s3_path        = "dags/"
+  execution_role_arn = aws_iam_role.example.arn
+  name               = "example"
+
+  network_configuration {
+    security_group_ids = ["sg-04f0b6e88fcd2b6de","sg-07f4377f13eefbdc6"]
+    subnet_ids         = ["subnet-083f60308cc643012","subnet-05244b86b15d97348","subnet-0953f3608b7a4b8e9","subnet-0d6d19655bf5771bc"]
+  }
+
   source_bucket_arn = "arn:aws:s3:::airflow197805"
-  vpc_id = "vpc-06179917ff299190d"
 }
