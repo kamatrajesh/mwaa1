@@ -1,4 +1,4 @@
-module "airflow" {
+resource "aws_mwaa_environment" "example" {
   version = "2.2.2"
   account_id = "863309687429"
   environmentname = "MyEnvironment_terra"
