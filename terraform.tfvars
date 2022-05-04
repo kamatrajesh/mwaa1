@@ -1,2 +1,2 @@
-  name1="exam12"
+  name1 = "exam12"
 
