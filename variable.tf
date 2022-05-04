@@ -1,6 +1,8 @@
 variable "name1" {
 type        = string
 description = "name env"
+  default="exam"
+  
 }
 
 variable "arn" {
