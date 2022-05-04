@@ -1,5 +1,6 @@
 variable "name1" {
-
+type        = string
+description = "name env"
 }
 
 variable "arn" {
